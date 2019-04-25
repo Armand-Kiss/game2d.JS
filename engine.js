@@ -1,11 +1,11 @@
-const fm = require('./fm');
+const fm = require('./fm'); //Import "FileManager"
 class Engine {
   constructor(title, backgroundColor) {
-    this.actors = [];
-    this.title = title;
-    this.backgroundColor = backgroundColor;
+    this.actors = []; //Creates an empty array
+    this.title = title; //Saves the title
+    this.backgroundColor = backgroundColor; //Saves the background color
   }
-  init() {
+  init() { //Initialize the Engine
     this.out = "<!DOCTYPE html>\n \
     <html>\n \
     <head>\n \
@@ -76,13 +76,13 @@ class Engine {
   } \n \
     \n ";
   }
-  onstart_start() {
+  onstart_start() { //onstart begining
     this.out += "function startGame() {\n       myGameArea.start();\n ";
   }
-  addCode(jscode) {
+  addCode(jscode) { //Adds browser-side javascript code
     this.out += jscode;
   }
-  moveActor(acotrname,relative,x,y, asreturn) {
+  moveActor(acotrname,relative,x,y, asreturn) { //moves the actor
     if (!asreturn) {
     this.out += acotrname + ".newPos(" + relative + ',' + x + ',' + -y + ");\n";
     this.out += "updateall(); \n";
@@ -92,60 +92,60 @@ class Engine {
       return a;
     }
   }
-  onstart_end() {
+  onstart_end() { //ends the onstart
     this.out += "function updateall() {\n"
     this.out += "myGameArea.start();"
     let arr = this.actors;
     let temp = "";
     for (let i = 0; i < this.actors.length; i++) {
       const element = arr[i];
-      temp += element + ".update();\n"
+      temp += element + ".update();\n" //Updates the acotrs
     }
-    this.out += temp;
+    this.out += temp; //adds the code
     this.out += "\n};\n";
     this.out += "         }";
   }
-  logText(text) {
+  logText(text) { //Logs text to the console
     this.out += "\nconsole.log(\"" + text + "\");\n";
   }
-  logkeys() {
+  logkeys() { //Logs the keys that are pressed
     this.out += "addEvent(document, \"keypress\", function (e) { \n \
       e = e || window.event; \n \
       console.log(e.key); \n \
     }); \n \
     ";
   }
-  pasueSound(id) {
+  pasueSound(id) { //Pauses a sound
   this.out += id + ".pause();";
   }
-  unpauseSound(id) {
+  unpauseSound(id) { //UnPauses a sound
   this.out += id + ".paused = true;";
   }
-  playSound(id,remoteurl) {
+  playSound(id,remoteurl) { //Plays a sound from a remote link
     this.out += "\n \
     let " + id + " = new Audio('" + remoteurl + "')\n \
     " + id + ".play();\n \
     ";
   }
-  randomInt(min, max) {
+  randomInt(min, max) { //Generates a random int
     let int = Math.floor(Math.random() * (max + 1)) + min;
-    return int;
+    return int; //Returns the random int
   }
-  isEven(num) {
+  isEven(num) { //Checks if a number is even
     if(num % 2) {
       return false;
     }
     return true;
   }
-  getPi() {
+  getPi() { //Returns Pi
     const PI = 3.141592653589793;
     return PI;
   }
   
-  reverseminus(number) {
+  reverseminus(number) { //Reverses a number
     return -number;
   }
-  onkey(letter, code) {
+  onkey(letter, code) { //On key press
     this.out += "addEvent(document, \"keypress\", function (e) { \n \
       e = e || window.event; \n \
       if (\"" + letter + "\" == e.key) \n \
@@ -153,17 +153,17 @@ class Engine {
     }); \n \
     ";
   }
-  addActor(id,width,height,color, x,y) {
-    this.actors.push(id);
+  addActor(id,width,height,color, x,y) { //Adds an actor
+    this.actors.push(id); //Pushes the actor to the array
     this.out += 
     "       var " + id + ";\n \
         " + id + " = new component(" + width + ", " + height + ", \"" + color + "\", " + x + ", " + y + ");" + " \n";
-        this.out += "\n " + id + ".update();";
+        this.out += "\n " + id + ".update();"; //generates the code
       }
-  start() {
+  start() { //Starts the game, and the Engine
     this.out += "\n         startGame(); \n";
   }
-  render() {
+  render() { //Finishes the engine script, and returns it in html
     this.out += "</script>\n "
     return this.out;
   }
