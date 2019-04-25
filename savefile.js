@@ -9,7 +9,7 @@ Array.prototype.remove = function() {
     return this;
 };
 
-const fm = require('./fm');
+const fm = require('./fm'); //Imports the filemanager
 
 class SaveFile {
     constructor() {
@@ -19,31 +19,28 @@ class SaveFile {
         for (let i = 0; i < this.values.length; i++) {
             const element = this.values[i].split('&&');
             if (element[0] == valueid) {
-                return element[1];
+                return element[1]; //Returns the value of the "var"
             }
         }
     }
     addValue(valuename,defaultvalue) {
-    this.values.push(valuename + '&&' + defaultvalue);
+    this.values.push(valuename + '&&' + defaultvalue); //Creates a new "var" with a default value
     }
     exportformat(values_array) {
-        return values_array.toString();
+        return values_array.toString(); //Exports the array
     }
     importformat(enconded) {
-        this.values = enconded.split(',');
-        return enconded.split(',');
+        this.values = enconded.split(','); //Imports the format
+        return enconded.split(','); //Imports the format
     }
-    setValue(valuename,value) {
+    setValue(valuename,value) { //Sets value of a "var" to a value
         for (let i = 0; i < this.values.length; i++) {
             const element = this.values[i].split('&&');
-            if (element[0] == valuename) {
-                this.values.remove(element[0] + '&&' + element[1])
-                this.values.push(element[0] + '&&' + value);
+            if (element[0] == valuename) { //If the value name is in the array
+                this.values.remove(element[0] + '&&' + element[1]) //Then remove it
+                this.values.push(element[0] + '&&' + value); //And add it with the new value
             }
         }
-    }
-    save() {
-
     }
     write(filename,content) {
         fm.write(filename,content)
