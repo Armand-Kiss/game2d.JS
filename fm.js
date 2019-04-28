@@ -1,11 +1,9 @@
-const fs = require('fs')
+const fs = require('fs');
 
 function copy(ipnf, ouf) {
-    write(ouf, read(ipnf))
+    write(ouf, read(ipnf));
 }
 function read(filename) {
-let tmpfixa = fs.readFileSync(filename, 'utf8');
-let tmpfixb = fs.readFileSync(filename, 'utf8');
 return fs.readFileSync(filename, 'utf8');
 }
 function write(filename, contents) {
@@ -25,8 +23,8 @@ fs.writeFile(filename, contents, function(err) {
 
 
 function movefile(inpf, ouf) {
-    copy(inpf,ouf)
-    deletefile(inpf)
+    copy(inpf,ouf);
+    deletefile(inpf);
 }
 
 function deletefile(filename) {
