@@ -75,6 +75,12 @@ class Engine {
           ctx.fillRect(this.x, this.y, this.width, this.height); \n \
       } \n \
       this.newPos = function(relative,xx,yy) { \n \
+        var w = window.innerWidth; \n \
+        var h = window.innerHeight; \n \
+        var tmpx = this.x / 1 + xx / 1\n \
+        var tmpy = this.y / 1 + yy / 1\n \
+          if (tmpx < 0 || tmpx > w - 30) {return;} \n \
+          if (tmpy < 0 || tmpy > h - 40) {return;} \n \
           if (relative) {\n\
           this.x += xx; \n \
           this.y += yy;         \n \
@@ -146,6 +152,12 @@ class Engine {
           ctx.fillRect(this.x, this.y, this.width, this.height); \n \
       } \n \
       this.newPos = function(relative,xx,yy) { \n \
+        var w = window.innerWidth; \n \
+        var h = window.innerHeight; \n \
+        var tmpx = this.x / 1 + xx / 1\n \
+        var tmpy = this.y / 1 + yy / 1\n \
+          if (tmpx < 0 || tmpx > w - 30) {return;} \n \
+          if (tmpy < 0 || tmpy > h - 40) {return;} \n \
           if (relative) {\n\
           this.x += xx; \n \
           this.y += yy;         \n \
