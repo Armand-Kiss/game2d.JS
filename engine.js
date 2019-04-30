@@ -286,7 +286,7 @@ class Engine {
     }
   }
   export(antidebug) { //Finishes the engine script, and returns it in html
-    if (antidebug == null) {
+    if (antidebug == null || !antidebug) {
       this.out += "</script>\n ";
       return this.out;
     }
