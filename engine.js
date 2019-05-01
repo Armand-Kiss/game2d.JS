@@ -79,8 +79,8 @@ class Engine {
         var h = window.innerHeight; \n \
         var tmpx = this.x / 1 + xx / 1\n \
         var tmpy = this.y / 1 + yy / 1\n \
-          if (tmpx < 0 || tmpx > w - 30) {return;} \n \
-          if (tmpy < 0 || tmpy > h - 40) {return;} \n \
+          if (tmpx < 0 || tmpx > w - 30) {console.warn(\"Out of bounds on x\");return;} \n \
+          if (tmpy < 0 || tmpy > h - 40) {console.warn(\"Out of bounds on y\");return;} \n \
           if (relative) {\n\
           this.x += xx; \n \
           this.y += yy;         \n \
@@ -156,8 +156,8 @@ class Engine {
         var h = window.innerHeight; \n \
         var tmpx = this.x / 1 + xx / 1\n \
         var tmpy = this.y / 1 + yy / 1\n \
-          if (tmpx < 0 || tmpx > w - 30) {return;} \n \
-          if (tmpy < 0 || tmpy > h - 40) {return;} \n \
+        if (tmpx < 0 || tmpx > w - 30) {console.warn(\"Out of bounds on x\");return;} \n \
+        if (tmpy < 0 || tmpy > h - 40) {console.warn(\"Out of bounds on y\");return;} \n \
           if (relative) {\n\
           this.x += xx; \n \
           this.y += yy;         \n \
