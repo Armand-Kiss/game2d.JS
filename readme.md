@@ -1,2 +1,5 @@
-# This is a 2d game engine
-This engine can be used with node.JS.
+# Welcome to the README of Game2D.JS
+This is a 2D game engine.
+## 1. Usage
+  ### 1.1. 
+    At first
