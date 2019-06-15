@@ -2,6 +2,6 @@
 This is a 2D game engine.
 ## 1. Usage
   ### 1.1. 
-    You must have Node.Js on your computer.
+    You must have Node.Js and git on your computer.
     
   ### 1.2.
