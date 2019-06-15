@@ -5,3 +5,5 @@ This is a 2D game engine.
     You must have Node.Js and git on your computer.
     
   ### 1.2.
+    
+    Then you have to type `git clone https://github.com/Armand-Kiss/game2d.JS`, and then delete the .html demo files.
