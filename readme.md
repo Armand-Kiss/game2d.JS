@@ -1,6 +1,6 @@
 # Welcome to the README of Game2D.JS
 This is a 2D game engine.
-## 1. Usage
+## 1. Installation of the engine
   ### 1.1. 
     You must have Node.Js and git on your computer.
     
@@ -10,7 +10,7 @@ This is a 2D game engine.
     
   ### 1.3
   
-    Then you have to open in an editor, an editor or the engine is comeing soon.
+    Then you have to open in an editor, an editor for the engine is comeing soon.
     
   ### 1.4
   
